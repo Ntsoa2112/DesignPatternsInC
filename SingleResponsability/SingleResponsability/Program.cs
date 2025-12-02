@@ -16,4 +16,4 @@ var psi = new ProcessStartInfo
 };
 Process.Start(psi);
 
-// A typical class is responsible for on thing and has one reason to change.
+// A typical class is responsible for one thing and has one reason to change.
