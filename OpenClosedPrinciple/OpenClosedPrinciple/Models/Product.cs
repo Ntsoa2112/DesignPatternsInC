@@ -6,27 +6,7 @@ using System.Threading.Tasks;
 
 namespace OpenClosedPrinciple.Models
 {
-    public enum Color
-    {
-        Red,
-        Blue,
-        Green,
-        Yellow
-    }
-
-    public enum Size
-    {
-        Small,
-        Medium,
-        Large,
-        ExtraLarge
-    }
-
-    public interface IsSpecification<T>
-    {
-        bool IsSatisfied(T item);
-    }
-    internal class Product
+    public class Product
     {
         public string Name { get; set; }
         public Color Color { get; set; }
