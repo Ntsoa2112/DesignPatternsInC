@@ -18,8 +18,8 @@ namespace LiskovSubstitutionPrinciple.Models
 
         public Rectangle(int width, int height)
         {
-            width = Width;
-            height = Height;
+            Width = width;
+            Height = height;
         }
          
         public override string ToString()
