@@ -1,4 +1,5 @@
-﻿using LinqExo.Model;
+﻿using System.Diagnostics;
+using LinqExo.Model;
 
 var orders = new List<Order> {
     new Order { Id = 1, CustomerId = 1, Amount = 100 },
@@ -24,3 +25,28 @@ var emails = new List<string> {
 
 var resultEmails = EmailUtils.FindDuplicateEmails(emails);
 resultEmails.ForEach(email => Console.WriteLine(email));
+
+var service = new ExternalService();
+var stopwatch = Stopwatch.StartNew();
+
+var data = await WeatherUtils.GetWeatherDataAsync(service);
+
+stopwatch.Stop();
+
+Console.WriteLine($"Weather: {data.Weather}");
+Console.WriteLine($"Temperature: {data.Temperature}");
+Console.WriteLine($"Forecast: {data.Forecast}");
+Console.WriteLine($"Time elapsed: {stopwatch.ElapsedMilliseconds}ms");
+
+
+var serviceUnstable = new UnstableApiService();
+
+try
+{
+    var resultServiceUnstable = await ApiUtils.CallApiWithRetryAsync(serviceUnstable, maxRetries: 3);
+    Console.WriteLine($"Result: {resultServiceUnstable}"); // Doit afficher "Success!"
+}
+catch (HttpRequestException ex)
+{
+    Console.WriteLine($"All retries failed: {ex.Message}");
+}
