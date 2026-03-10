@@ -43,7 +43,7 @@ button.Click += async (sender, args) => {
 // 1.3 – await : Ce qui se passe vraiment
 public async Task<string> GetDataAsync() {
     var result = await CallApiAsync(); // 👈 ICI
-    return result. ToUpper();
+    return result.ToUpper();
 }
 
 /*
