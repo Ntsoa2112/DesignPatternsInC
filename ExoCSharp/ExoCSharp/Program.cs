@@ -92,3 +92,8 @@ int rotationSteps = 2;
 int[] rotatedArray = Util.RotationDeTableau(arrayToRotate, rotationSteps);
 Console.WriteLine($"Original array: {string.Join(", ", arrayToRotate)}");
 Console.WriteLine($"New array: {string.Join(", ", rotatedArray)}");
+
+// Exo 15 : valider une parenthèse
+string parenthesesInput = "([)]";
+bool isValidParentheses = Util.ParenthesesEquilibrees(parenthesesInput);
+Console.WriteLine($"Are the parentheses in '{parenthesesInput}' balanced? {isValidParentheses}");
